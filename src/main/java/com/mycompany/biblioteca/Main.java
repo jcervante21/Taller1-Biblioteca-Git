@@ -112,4 +112,26 @@ public class Main {
         books.add(book);
         System.out.println("Book created successfully.");
     }
+
+    // READ - list all
+    public static void listBooks() {
+        System.out.println("--- Book List ---");
+        if (books.isEmpty()) {
+            System.out.println("No books registered.");
+            return;
+        }
+        for (Book b : books) {
+            System.out.println(b);
+        }
+    }
+
+    // READ - search by code
+    public static Book searchBook(String code) {
+        for (Book b : books) {
+            if (b.getCode().equals(code)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
