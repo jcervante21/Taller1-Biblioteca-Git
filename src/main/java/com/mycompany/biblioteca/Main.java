@@ -11,7 +11,6 @@ public class Main {
         // Menu will go here (Phase 8)
     }
 
-    // CREATE
     public static void createCustomer() {
         System.out.println("--- Create Customer ---");
         System.out.print("ID: ");
@@ -26,5 +25,25 @@ public class Main {
         Customer customer = new Customer(id, name, phone, email);
         customers.add(customer);
         System.out.println("Customer created successfully.");
+    }
+
+    public static void listCustomers() {
+        System.out.println("--- Customer List ---");
+        if (customers.isEmpty()) {
+            System.out.println("No customers registered.");
+            return;
+        }
+        for (Customer c : customers) {
+            System.out.println(c);
+        }
+    }
+
+    public static Customer searchCustomer(String id) {
+        for (Customer c : customers) {
+            if (c.getId().equals(id)) {
+                return c;
+            }
+        }
+        return null;
     }
 }
