@@ -70,4 +70,19 @@ public class Main {
         customer.setEmail(email);
         System.out.println("Customer updated successfully.");
     }
+
+    public static void deleteCustomer() {
+        System.out.println("--- Delete Customer ---");
+        System.out.print("Enter the ID of the customer to delete: ");
+        String id = sc.nextLine();
+
+        Customer customer = searchCustomer(id);
+        if (customer == null) {
+            System.out.println("Customer not found.");
+            return;
+        }
+
+        customers.remove(customer);
+        System.out.println("Customer deleted successfully.");
+    }
 }
