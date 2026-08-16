@@ -134,4 +134,29 @@ public class Main {
         }
         return null;
     }
+
+    // UPDATE
+    public static void updateBook() {
+        System.out.println("--- Update Book ---");
+        System.out.print("Enter the code of the book to update: ");
+        String code = sc.nextLine();
+
+        Book book = searchBook(code);
+        if (book == null) {
+            System.out.println("Book not found.");
+            return;
+        }
+
+        System.out.print("New title (current: " + book.getTitle() + "): ");
+        String title = sc.nextLine();
+        System.out.print("New publication year (current: " + book.getPublicationYear() + "): ");
+        String publicationYear = sc.nextLine();
+        System.out.print("New author (current: " + book.getAuthor() + "): ");
+        String author = sc.nextLine();
+
+        book.setTitle(title);
+        book.setPublicationYear(publicationYear);
+        book.setAuthor(author);
+        System.out.println("Book updated successfully.");
+    }
 }
