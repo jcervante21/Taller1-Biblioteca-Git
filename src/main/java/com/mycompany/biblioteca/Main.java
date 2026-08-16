@@ -241,4 +241,19 @@ public class Main {
         loan.getBook().setAvailable(true);
         System.out.println("Book returned successfully.");
     }
+
+    // List active loans
+    public static void listActiveLoans() {
+        System.out.println("--- Active Loans ---");
+        boolean found = false;
+        for (Loan l : loans) {
+            if (l.getStatus().equals("ACTIVE")) {
+                System.out.println(l);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No active loans.");
+        }
+    }
 }
