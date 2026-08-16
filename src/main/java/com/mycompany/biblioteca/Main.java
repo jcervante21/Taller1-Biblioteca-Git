@@ -1,16 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.biblioteca;
 
-/**
- *
- * @author JOSEDAVIDCERVANTESOL
- */
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
+    static ArrayList<Customer> customers = new ArrayList<>();
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        // Menu will go here (Phase 8)
     }
 }
