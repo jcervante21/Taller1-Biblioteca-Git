@@ -46,4 +46,28 @@ public class Main {
         }
         return null;
     }
+
+    public static void updateCustomer() {
+        System.out.println("--- Update Customer ---");
+        System.out.print("Enter the ID of the customer to update: ");
+        String id = sc.nextLine();
+
+        Customer customer = searchCustomer(id);
+        if (customer == null) {
+            System.out.println("Customer not found.");
+            return;
+        }
+
+        System.out.print("New name (current: " + customer.getName() + "): ");
+        String name = sc.nextLine();
+        System.out.print("New phone (current: " + customer.getPhone() + "): ");
+        String phone = sc.nextLine();
+        System.out.print("New email (current: " + customer.getEmail() + "): ");
+        String email = sc.nextLine();
+
+        customer.setName(name);
+        customer.setPhone(phone);
+        customer.setEmail(email);
+        System.out.println("Customer updated successfully.");
+    }
 }
