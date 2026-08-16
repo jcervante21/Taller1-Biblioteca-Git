@@ -212,4 +212,33 @@ public class Main {
         book.setAvailable(false);
         System.out.println("Loan registered successfully.");
     }
+
+    // Return a loan
+    public static void returnLoan() {
+        System.out.println("--- Return Loan ---");
+        System.out.print("Loan ID: ");
+        String loanId = sc.nextLine();
+
+        Loan loan = null;
+        for (Loan l : loans) {
+            if (l.getLoanId().equals(loanId)) {
+                loan = l;
+                break;
+            }
+        }
+
+        if (loan == null) {
+            System.out.println("Loan not found.");
+            return;
+        }
+
+        if (loan.getStatus().equals("RETURNED")) {
+            System.out.println("This loan was already returned.");
+            return;
+        }
+
+        loan.setStatus("RETURNED");
+        loan.getBook().setAvailable(true);
+        System.out.println("Book returned successfully.");
+    }
 }
