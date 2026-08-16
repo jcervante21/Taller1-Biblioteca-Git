@@ -5,12 +5,16 @@ import java.util.Scanner;
 
 public class Main {
     static ArrayList<Customer> customers = new ArrayList<>();
+    static ArrayList<Book> books = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         // Menu will go here (Phase 8)
     }
 
+    // ===== CUSTOMER =====
+
+    // CREATE
     public static void createCustomer() {
         System.out.println("--- Create Customer ---");
         System.out.print("ID: ");
@@ -27,6 +31,7 @@ public class Main {
         System.out.println("Customer created successfully.");
     }
 
+    // READ - list all
     public static void listCustomers() {
         System.out.println("--- Customer List ---");
         if (customers.isEmpty()) {
@@ -38,6 +43,7 @@ public class Main {
         }
     }
 
+    // READ - search by id
     public static Customer searchCustomer(String id) {
         for (Customer c : customers) {
             if (c.getId().equals(id)) {
@@ -47,6 +53,7 @@ public class Main {
         return null;
     }
 
+    // UPDATE
     public static void updateCustomer() {
         System.out.println("--- Update Customer ---");
         System.out.print("Enter the ID of the customer to update: ");
@@ -71,6 +78,7 @@ public class Main {
         System.out.println("Customer updated successfully.");
     }
 
+    // DELETE
     public static void deleteCustomer() {
         System.out.println("--- Delete Customer ---");
         System.out.print("Enter the ID of the customer to delete: ");
@@ -84,5 +92,24 @@ public class Main {
 
         customers.remove(customer);
         System.out.println("Customer deleted successfully.");
+    }
+
+    // ===== BOOK =====
+
+    // CREATE
+    public static void createBook() {
+        System.out.println("--- Create Book ---");
+        System.out.print("Code: ");
+        String code = sc.nextLine();
+        System.out.print("Title: ");
+        String title = sc.nextLine();
+        System.out.print("Publication Year: ");
+        String publicationYear = sc.nextLine();
+        System.out.print("Author: ");
+        String author = sc.nextLine();
+
+        Book book = new Book(code, title, publicationYear, author);
+        books.add(book);
+        System.out.println("Book created successfully.");
     }
 }
