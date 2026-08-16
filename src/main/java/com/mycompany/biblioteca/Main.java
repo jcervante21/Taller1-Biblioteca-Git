@@ -11,7 +11,80 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Menu will go here (Phase 8)
+        int option;
+        do {
+            System.out.println("\n===== LIBRARY MANAGEMENT SYSTEM =====");
+            System.out.println("1. Create customer");
+            System.out.println("2. List customers");
+            System.out.println("3. Search customer");
+            System.out.println("4. Update customer");
+            System.out.println("5. Delete customer");
+            System.out.println("6. Create book");
+            System.out.println("7. List books");
+            System.out.println("8. Search book");
+            System.out.println("9. Update book");
+            System.out.println("10. Delete book");
+            System.out.println("11. Register loan");
+            System.out.println("12. Return loan");
+            System.out.println("13. List active loans");
+            System.out.println("0. Exit");
+            System.out.print("Select an option: ");
+
+            option = Integer.parseInt(sc.nextLine());
+
+            switch (option) {
+                case 1:
+                    createCustomer();
+                    break;
+                case 2:
+                    listCustomers();
+                    break;
+                case 3:
+                    System.out.print("Enter customer ID: ");
+                    String searchId = sc.nextLine();
+                    Customer found = searchCustomer(searchId);
+                    System.out.println(found != null ? found : "Customer not found.");
+                    break;
+                case 4:
+                    updateCustomer();
+                    break;
+                case 5:
+                    deleteCustomer();
+                    break;
+                case 6:
+                    createBook();
+                    break;
+                case 7:
+                    listBooks();
+                    break;
+                case 8:
+                    System.out.print("Enter book code: ");
+                    String searchCode = sc.nextLine();
+                    Book foundBook = searchBook(searchCode);
+                    System.out.println(foundBook != null ? foundBook : "Book not found.");
+                    break;
+                case 9:
+                    updateBook();
+                    break;
+                case 10:
+                    deleteBook();
+                    break;
+                case 11:
+                    createLoan();
+                    break;
+                case 12:
+                    returnLoan();
+                    break;
+                case 13:
+                    listActiveLoans();
+                    break;
+                case 0:
+                    System.out.println("Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid option, please try again.");
+            }
+        } while (option != 0);
     }
 
     // ===== CUSTOMER =====
