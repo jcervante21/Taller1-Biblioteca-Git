@@ -159,4 +159,20 @@ public class Main {
         book.setAuthor(author);
         System.out.println("Book updated successfully.");
     }
+
+    // DELETE
+    public static void deleteBook() {
+        System.out.println("--- Delete Book ---");
+        System.out.print("Enter the code of the book to delete: ");
+        String code = sc.nextLine();
+
+        Book book = searchBook(code);
+        if (book == null) {
+            System.out.println("Book not found.");
+            return;
+        }
+
+        books.remove(book);
+        System.out.println("Book deleted successfully.");
+    }
 }
