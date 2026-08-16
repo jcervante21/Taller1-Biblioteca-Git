@@ -1,11 +1,13 @@
 package com.mycompany.biblioteca;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     static ArrayList<Customer> customers = new ArrayList<>();
     static ArrayList<Book> books = new ArrayList<>();
+    static ArrayList<Loan> loans = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -174,5 +176,40 @@ public class Main {
 
         books.remove(book);
         System.out.println("Book deleted successfully.");
+    }
+
+    // ===== LOAN =====
+
+    // Register a new loan
+    public static void createLoan() {
+        System.out.println("--- Register Loan ---");
+        System.out.print("Loan ID: ");
+        String loanId = sc.nextLine();
+        System.out.print("Customer ID: ");
+        String customerId = sc.nextLine();
+        System.out.print("Book code: ");
+        String bookCode = sc.nextLine();
+
+        Customer customer = searchCustomer(customerId);
+        if (customer == null) {
+            System.out.println("Customer not found.");
+            return;
+        }
+
+        Book book = searchBook(bookCode);
+        if (book == null) {
+            System.out.println("Book not found.");
+            return;
+        }
+
+        if (!book.isAvailable()) {
+            System.out.println("This book is not available for loan.");
+            return;
+        }
+
+        Loan loan = new Loan(loanId, customer, book, LocalDate.now(), "ACTIVE");
+        loans.add(loan);
+        book.setAvailable(false);
+        System.out.println("Loan registered successfully.");
     }
 }
